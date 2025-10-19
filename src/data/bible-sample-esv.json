@@ -1,0 +1,47 @@
+{
+  "version": "ESV",
+  "language": "en",
+  "books": [
+    {
+      "name": "John",
+      "abbrev": "JHN",
+      "chapters": [
+        {
+          "chapter": 3,
+          "verses": [
+            {
+              "book": "John",
+              "chapter": 3,
+              "verse": 1,
+              "text": "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews."
+            },
+            {
+              "book": "John",
+              "chapter": 3,
+              "verse": 2,
+              "text": "This man came to Jesus by night and said to him, \"Rabbi, we know that you are a teacher come from God, for no one can do these signs that you do unless God is with him.\""
+            },
+            {
+              "book": "John",
+              "chapter": 3,
+              "verse": 3,
+              "text": "Jesus answered him, \"Truly, truly, I say to you, unless one is born again he cannot see the kingdom of God.\""
+            },
+            {
+              "book": "John",
+              "chapter": 3,
+              "verse": 16,
+              "text": "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."
+            },
+            {
+              "book": "John",
+              "chapter": 3,
+              "verse": 17,
+              "text": "For God did not send his Son into the world to condemn the world, but in order that the world might be saved through him."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
