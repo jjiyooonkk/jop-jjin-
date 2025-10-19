@@ -936,7 +936,7 @@ export function BibleVerse() {
                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
                   <Button
                     onClick={getNewVerse}
-                    className="bg-gradient-to-r from-green-700 to-lime-700 hover:from-green-800 hover:to-lime-800 text-white px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
                   >
                     <RefreshCw className="w-4 h-4 mr-2" />
                     {language === "en"
@@ -945,7 +945,7 @@ export function BibleVerse() {
                   </Button>
                   <Button
                     onClick={shareVerse}
-                    className="bg-gradient-to-r from-green-700 to-lime-700 hover:from-green-800 hover:to-lime-800 text-white px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
                   >
                     <Share2 className="w-4 h-4 mr-2" />
                     {language === "en" ? "Share" : "공유"}
