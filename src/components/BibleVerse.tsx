@@ -1667,7 +1667,7 @@ export function BibleVerse() {
                     className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-amber-900 px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
                   >
                     <Share2 className="w-4 h-4 mr-2" />
-                    {language === "en" ? "Share" : "공유"}
+                    {language === "en" ? "Copy" : "복사하기"}
                   </Button>
                 </div>
 
