@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -20,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 interface Verse {
   text: string;
@@ -76,6 +77,149 @@ const bibleVersions: BibleVersions = {
         text: "For God gave us a spirit not of fear but of power and love and self-control.",
         reference: "2 Timothy 1:7",
       },
+      // New Testament
+      {
+        text: "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.",
+        reference: "John 3:16",
+      },
+      {
+        text: "Jesus said to him, 'I am the way, and the truth, and the life. No one comes to the Father except through me.'",
+        reference: "John 14:6",
+      },
+      {
+        text: "And he said to him, 'You shall love the Lord your God with all your heart and with all your soul and with all your mind.'",
+        reference: "Matthew 22:37",
+      },
+      {
+        text: "But seek first the kingdom of God and his righteousness, and all these things will be added to you.",
+        reference: "Matthew 6:33",
+      },
+      {
+        text: "For where two or three are gathered in my name, there am I among them.",
+        reference: "Matthew 18:20",
+      },
+      {
+        text: "And we know that for those who love God all things work together for good, for those who are called according to his purpose.",
+        reference: "Romans 8:28",
+      },
+      {
+        text: "For I am sure that neither death nor life, nor angels nor rulers, nor things present nor things to come, nor powers, nor height nor depth, nor anything else in all creation, will be able to separate us from the love of God in Christ Jesus our Lord.",
+        reference: "Romans 8:38-39",
+      },
+      {
+        text: "For by grace you have been saved through faith. And this is not your own doing; it is the gift of God.",
+        reference: "Ephesians 2:8",
+      },
+      {
+        text: "And he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.'",
+        reference: "2 Corinthians 12:9",
+      },
+      {
+        text: "Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.",
+        reference: "2 Corinthians 5:17",
+      },
+      // Isaiah
+      {
+        text: "But those who wait for the Lord shall renew their strength; they shall mount up with wings like eagles; they shall run and not be weary; they shall walk and not faint.",
+        reference: "Isaiah 40:31",
+      },
+      {
+        text: "For to us a child is born, to us a son is given; and the government shall be upon his shoulder, and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace.",
+        reference: "Isaiah 9:6",
+      },
+      {
+        text: "Fear not, for I am with you; be not dismayed, for I am your God; I will strengthen you, I will help you, I will uphold you with my righteous right hand.",
+        reference: "Isaiah 41:10",
+      },
+      {
+        text: "When you pass through the waters, I will be with you; and through the rivers, they shall not overwhelm you; when you walk through fire you shall not be burned, and the flame shall not consume you.",
+        reference: "Isaiah 43:2",
+      },
+      {
+        text: "For I am the Lord your God who takes hold of your right hand and says to you, Do not fear; I will help you.",
+        reference: "Isaiah 41:13",
+      },
+      // Psalms
+      {
+        text: "The Lord is my shepherd; I shall not want. He makes me lie down in green pastures. He leads me beside still waters.",
+        reference: "Psalm 23:1-2",
+      },
+      {
+        text: "The Lord is my light and my salvation; whom shall I fear? The Lord is the stronghold of my life; of whom shall I be afraid?",
+        reference: "Psalm 27:1",
+      },
+      {
+        text: "Be still, and know that I am God. I will be exalted among the nations, I will be exalted in the earth!",
+        reference: "Psalm 46:10",
+      },
+      {
+        text: "Create in me a clean heart, O God, and renew a right spirit within me.",
+        reference: "Psalm 51:10",
+      },
+      {
+        text: "I lift up my eyes to the hills. From where does my help come? My help comes from the Lord, who made heaven and earth.",
+        reference: "Psalm 121:1-2",
+      },
+      {
+        text: "I praise you, for I am fearfully and wonderfully made. Wonderful are your works; my soul knows it very well.",
+        reference: "Psalm 139:14",
+      },
+      // Proverbs
+      {
+        text: "Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.",
+        reference: "Proverbs 3:5-6",
+      },
+      {
+        text: "The fear of the Lord is the beginning of knowledge; fools despise wisdom and instruction.",
+        reference: "Proverbs 1:7",
+      },
+      {
+        text: "Commit your work to the Lord, and your plans will be established.",
+        reference: "Proverbs 16:3",
+      },
+      {
+        text: "A gentle answer turns away wrath, but a harsh word stirs up anger.",
+        reference: "Proverbs 15:1",
+      },
+      {
+        text: "The heart of man plans his way, but the Lord establishes his steps.",
+        reference: "Proverbs 16:9",
+      },
+      // Ecclesiastes
+      {
+        text: "For everything there is a season, and a time for every matter under heaven.",
+        reference: "Ecclesiastes 3:1",
+      },
+      {
+        text: "Vanity of vanities, says the Preacher, vanity of vanities! All is vanity.",
+        reference: "Ecclesiastes 1:2",
+      },
+      {
+        text: "Remember also your Creator in the days of your youth, before the evil days come and the years draw near of which you will say, 'I have no pleasure in them.'",
+        reference: "Ecclesiastes 12:1",
+      },
+      // Job
+      {
+        text: "And he said, 'Naked I came from my mother's womb, and naked shall I return. The Lord gave, and the Lord has taken away; blessed be the name of the Lord.'",
+        reference: "Job 1:21",
+      },
+      {
+        text: "I know that my Redeemer lives, and at the last he will stand upon the earth.",
+        reference: "Job 19:25",
+      },
+      {
+        text: "And the Lord restored the fortunes of Job, when he had prayed for his friends. And the Lord gave Job twice as much as he had before.",
+        reference: "Job 42:10",
+      },
+      // Song of Songs
+      {
+        text: "I am my beloved's and my beloved is mine; he grazes among the lilies.",
+        reference: "Song of Songs 6:3",
+      },
+      {
+        text: "Set me as a seal upon your heart, as a seal upon your arm, for love is strong as death, jealousy is fierce as the grave. Its flashes are flashes of fire, the very flame of the Lord.",
+        reference: "Song of Songs 8:6",
+      },
     ],
     NIV: [
       {
@@ -118,6 +262,149 @@ const bibleVersions: BibleVersions = {
         text: "For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline.",
         reference: "2 Timothy 1:7",
       },
+      // New Testament
+      {
+        text: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
+        reference: "John 3:16",
+      },
+      {
+        text: "Jesus answered, 'I am the way and the truth and the life. No one comes to the Father except through me.'",
+        reference: "John 14:6",
+      },
+      {
+        text: "Jesus replied: 'Love the Lord your God with all your heart and with all your soul and with all your mind.'",
+        reference: "Matthew 22:37",
+      },
+      {
+        text: "But seek first his kingdom and his righteousness, and all these things will be given to you as well.",
+        reference: "Matthew 6:33",
+      },
+      {
+        text: "For where two or three gather in my name, there am I with them.",
+        reference: "Matthew 18:20",
+      },
+      {
+        text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
+        reference: "Romans 8:28",
+      },
+      {
+        text: "For I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future, nor any powers, neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.",
+        reference: "Romans 8:38-39",
+      },
+      {
+        text: "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God.",
+        reference: "Ephesians 2:8",
+      },
+      {
+        text: "But he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.'",
+        reference: "2 Corinthians 12:9",
+      },
+      {
+        text: "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!",
+        reference: "2 Corinthians 5:17",
+      },
+      // Isaiah
+      {
+        text: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.",
+        reference: "Isaiah 40:31",
+      },
+      {
+        text: "For to us a child is born, to us a son is given, and the government will be on his shoulders. And he will be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace.",
+        reference: "Isaiah 9:6",
+      },
+      {
+        text: "So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand.",
+        reference: "Isaiah 41:10",
+      },
+      {
+        text: "When you pass through the waters, I will be with you; and when you pass through the rivers, they will not sweep over you. When you walk through the fire, you will not be burned; the flames will not set you ablaze.",
+        reference: "Isaiah 43:2",
+      },
+      {
+        text: "For I am the Lord your God who takes hold of your right hand and says to you, Do not fear; I will help you.",
+        reference: "Isaiah 41:13",
+      },
+      // Psalms
+      {
+        text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
+        reference: "Psalm 23:1-2",
+      },
+      {
+        text: "The Lord is my light and my salvation—whom shall I fear? The Lord is the stronghold of my life—of whom shall I be afraid?",
+        reference: "Psalm 27:1",
+      },
+      {
+        text: "He says, 'Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth.'",
+        reference: "Psalm 46:10",
+      },
+      {
+        text: "Create in me a pure heart, O God, and renew a steadfast spirit within me.",
+        reference: "Psalm 51:10",
+      },
+      {
+        text: "I lift up my eyes to the mountains—where does my help come from? My help comes from the Lord, the Maker of heaven and earth.",
+        reference: "Psalm 121:1-2",
+      },
+      {
+        text: "I praise you because I am fearfully and wonderfully made; your works are wonderful, I know that full well.",
+        reference: "Psalm 139:14",
+      },
+      // Proverbs
+      {
+        text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
+        reference: "Proverbs 3:5-6",
+      },
+      {
+        text: "The fear of the Lord is the beginning of knowledge, but fools despise wisdom and instruction.",
+        reference: "Proverbs 1:7",
+      },
+      {
+        text: "Commit to the Lord whatever you do, and he will establish your plans.",
+        reference: "Proverbs 16:3",
+      },
+      {
+        text: "A gentle answer turns away wrath, but a harsh word stirs up anger.",
+        reference: "Proverbs 15:1",
+      },
+      {
+        text: "In their hearts humans plan their course, but the Lord establishes their steps.",
+        reference: "Proverbs 16:9",
+      },
+      // Ecclesiastes
+      {
+        text: "There is a time for everything, and a season for every activity under the heavens.",
+        reference: "Ecclesiastes 3:1",
+      },
+      {
+        text: "'Meaningless! Meaningless!' says the Teacher. 'Utterly meaningless! Everything is meaningless.'",
+        reference: "Ecclesiastes 1:2",
+      },
+      {
+        text: "Remember your Creator in the days of your youth, before the days of trouble come and the years approach when you will say, 'I find no pleasure in them.'",
+        reference: "Ecclesiastes 12:1",
+      },
+      // Job
+      {
+        text: "He said, 'Naked I came from my mother's womb, and naked I will depart. The Lord gave and the Lord has taken away; may the name of the Lord be praised.'",
+        reference: "Job 1:21",
+      },
+      {
+        text: "I know that my redeemer lives, and that in the end he will stand on the earth.",
+        reference: "Job 19:25",
+      },
+      {
+        text: "After Job had prayed for his friends, the Lord restored his fortunes and gave him twice as much as he had before.",
+        reference: "Job 42:10",
+      },
+      // Song of Songs
+      {
+        text: "I am my beloved's and my beloved is mine; he browses among the lilies.",
+        reference: "Song of Songs 6:3",
+      },
+      {
+        text: "Place me like a seal over your heart, like a seal on your arm; for love is as strong as death, its jealousy unyielding as the grave. It burns like blazing fire, like a mighty flame.",
+        reference: "Song of Songs 8:6",
+      },
     ],
     NKJV: [
       {
@@ -159,6 +446,149 @@ const bibleVersions: BibleVersions = {
       {
         text: "For God has not given us a spirit of fear, but of power and of love and of a sound mind.",
         reference: "2 Timothy 1:7",
+      },
+      // New Testament
+      {
+        text: "For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.",
+        reference: "John 3:16",
+      },
+      {
+        text: "Jesus said to him, 'I am the way, the truth, and the life. No one comes to the Father except through Me.'",
+        reference: "John 14:6",
+      },
+      {
+        text: "Jesus said to him, 'You shall love the Lord your God with all your heart, with all your soul, and with all your mind.'",
+        reference: "Matthew 22:37",
+      },
+      {
+        text: "But seek first the kingdom of God and His righteousness, and all these things shall be added to you.",
+        reference: "Matthew 6:33",
+      },
+      {
+        text: "For where two or three are gathered together in My name, I am there in the midst of them.",
+        reference: "Matthew 18:20",
+      },
+      {
+        text: "And we know that all things work together for good to those who love God, to those who are the called according to His purpose.",
+        reference: "Romans 8:28",
+      },
+      {
+        text: "For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, nor height nor depth, nor any other created thing, shall be able to separate us from the love of God which is in Christ Jesus our Lord.",
+        reference: "Romans 8:38-39",
+      },
+      {
+        text: "For by grace you have been saved through faith, and that not of yourselves; it is the gift of God.",
+        reference: "Ephesians 2:8",
+      },
+      {
+        text: "And He said to me, 'My grace is sufficient for you, for My strength is made perfect in weakness.'",
+        reference: "2 Corinthians 12:9",
+      },
+      {
+        text: "Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.",
+        reference: "2 Corinthians 5:17",
+      },
+      // Isaiah
+      {
+        text: "But those who wait on the Lord shall renew their strength; they shall mount up with wings like eagles, they shall run and not be weary, they shall walk and not faint.",
+        reference: "Isaiah 40:31",
+      },
+      {
+        text: "For unto us a Child is born, unto us a Son is given; and the government will be upon His shoulder. And His name will be called Wonderful, Counselor, Mighty God, Everlasting Father, Prince of Peace.",
+        reference: "Isaiah 9:6",
+      },
+      {
+        text: "Fear not, for I am with you; be not dismayed, for I am your God. I will strengthen you, yes, I will help you, I will uphold you with My righteous right hand.",
+        reference: "Isaiah 41:10",
+      },
+      {
+        text: "When you pass through the waters, I will be with you; and through the rivers, they shall not overflow you. When you walk through the fire, you shall not be burned, nor shall the flame scorch you.",
+        reference: "Isaiah 43:2",
+      },
+      {
+        text: "For I, the Lord your God, will hold your right hand, saying to you, 'Fear not, I will help you.'",
+        reference: "Isaiah 41:13",
+      },
+      // Psalms
+      {
+        text: "The Lord is my shepherd; I shall not want. He makes me to lie down in green pastures; He leads me beside the still waters.",
+        reference: "Psalm 23:1-2",
+      },
+      {
+        text: "The Lord is my light and my salvation; whom shall I fear? The Lord is the strength of my life; of whom shall I be afraid?",
+        reference: "Psalm 27:1",
+      },
+      {
+        text: "Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth!",
+        reference: "Psalm 46:10",
+      },
+      {
+        text: "Create in me a clean heart, O God, and renew a steadfast spirit within me.",
+        reference: "Psalm 51:10",
+      },
+      {
+        text: "I will lift up my eyes to the hills—from whence comes my help? My help comes from the Lord, who made heaven and earth.",
+        reference: "Psalm 121:1-2",
+      },
+      {
+        text: "I will praise You, for I am fearfully and wonderfully made; marvelous are Your works, and that my soul knows very well.",
+        reference: "Psalm 139:14",
+      },
+      // Proverbs
+      {
+        text: "Trust in the Lord with all your heart, and lean not on your own understanding; in all your ways acknowledge Him, and He shall direct your paths.",
+        reference: "Proverbs 3:5-6",
+      },
+      {
+        text: "The fear of the Lord is the beginning of knowledge, but fools despise wisdom and instruction.",
+        reference: "Proverbs 1:7",
+      },
+      {
+        text: "Commit your works to the Lord, and your thoughts will be established.",
+        reference: "Proverbs 16:3",
+      },
+      {
+        text: "A soft answer turns away wrath, but a harsh word stirs up anger.",
+        reference: "Proverbs 15:1",
+      },
+      {
+        text: "A man's heart plans his way, but the Lord directs his steps.",
+        reference: "Proverbs 16:9",
+      },
+      // Ecclesiastes
+      {
+        text: "To everything there is a season, a time for every purpose under heaven.",
+        reference: "Ecclesiastes 3:1",
+      },
+      {
+        text: "'Vanity of vanities,' says the Preacher; 'Vanity of vanities, all is vanity.'",
+        reference: "Ecclesiastes 1:2",
+      },
+      {
+        text: "Remember now your Creator in the days of your youth, before the difficult days come, and the years draw near when you say, 'I have no pleasure in them.'",
+        reference: "Ecclesiastes 12:1",
+      },
+      // Job
+      {
+        text: "And he said: 'Naked I came from my mother's womb, and naked shall I return there. The Lord gave, and the Lord has taken away; blessed be the name of the Lord.'",
+        reference: "Job 1:21",
+      },
+      {
+        text: "For I know that my Redeemer lives, and He shall stand at last on the earth.",
+        reference: "Job 19:25",
+      },
+      {
+        text: "And the Lord restored Job's losses when he prayed for his friends. Indeed the Lord gave Job twice as much as he had before.",
+        reference: "Job 42:10",
+      },
+      // Song of Songs
+      {
+        text: "I am my beloved's, and my beloved is mine. He feeds his flock among the lilies.",
+        reference: "Song of Songs 6:3",
+      },
+      {
+        text: "Set me as a seal upon your heart, as a seal upon your arm; for love is as strong as death, jealousy as cruel as the grave. Its flames are flames of fire, a most vehement flame.",
+        reference: "Song of Songs 8:6",
       },
     ],
   },
@@ -204,6 +634,149 @@ const bibleVersions: BibleVersions = {
         text: "하나님이 우리에게 주신 것은 두려워하는 마음이 아니요 오직 능력과 사랑과 절제하는 마음이니",
         reference: "디모데후서 1:7",
       },
+      // 신약
+      {
+        text: "하나님이 세상을 이처럼 사랑하사 독생자를 주셨으니 이는 그를 믿는 자마다 멸망하지 않고 영생을 얻게 하려 하심이라",
+        reference: "요한복음 3:16",
+      },
+      {
+        text: "예수께서 이르시되 내가 곧 길이요 진리요 생명이니 나로 말미암지 않고는 아버지께로 올 자가 없느니라",
+        reference: "요한복음 14:6",
+      },
+      {
+        text: "예수께서 이르시되 네 마음을 다하고 목숨을 다하고 뜻을 다하여 주 너의 하나님을 사랑하라 하셨으니",
+        reference: "마태복음 22:37",
+      },
+      {
+        text: "너희는 먼저 그의 나라와 그의 의를 구하라 그리하면 이 모든 것을 너희에게 더하시리라",
+        reference: "마태복음 6:33",
+      },
+      {
+        text: "두 세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라",
+        reference: "마태복음 18:20",
+      },
+      {
+        text: "우리가 알거니와 하나님을 사랑하는 자 곧 그의 뜻대로 부르심을 입은 자들에게는 모든 것이 합력하여 선을 이루느니라",
+        reference: "로마서 8:28",
+      },
+      {
+        text: "내가 확신하노니 사망이나 생명이나 천사들이나 권세자들이나 현재 일이나 장래 일이나 능력이나 높음이나 깊음이나 다른 어떤 피조물이라도 우리를 우리 주 그리스도 예수 안에 있는 하나님의 사랑에서 끊을 수 없으리라",
+        reference: "로마서 8:38-39",
+      },
+      {
+        text: "너희는 은혜에 의하여 믿음으로 말미암아 구원을 받았으니 이것은 너희에게서 난 것이 아니요 하나님의 선물이라",
+        reference: "에베소서 2:8",
+      },
+      {
+        text: "나에게 이르시기를 내 은혜가 네게 족하도다 이는 내 능력이 약한 데서 온전하여짐이라 하신지라",
+        reference: "고린도후서 12:9",
+      },
+      {
+        text: "그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라 이전 것은 지나갔으니 보라 새 것이 되었도다",
+        reference: "고린도후서 5:17",
+      },
+      // 이사야
+      {
+        text: "오직 여호와를 앙망하는 자는 새 힘을 얻으리니 독수리가 날개치며 올라감 같을 것이요",
+        reference: "이사야 40:31",
+      },
+      {
+        text: "이는 한 아기가 우리에게 났고 한 아들을 우리에게 주신 바 되었는데 그 어깨에는 정사를 메었고 그 이름은 기묘자라, 모사라, 전능하신 하나님이라, 영존하시는 아버지라, 평강의 왕이라 할 것임이라",
+        reference: "이사야 9:6",
+      },
+      {
+        text: "두려워하지 말라 내가 너와 함께 함이라 놀라지 말라 나는 네 하나님이 됨이라 내가 너를 굳세게 하리라 참으로 너를 도와주리라 참으로 나의 의로운 오른손으로 너를 붙들리라",
+        reference: "이사야 41:10",
+      },
+      {
+        text: "네가 물 가운데로 지날 때에 내가 함께 할 것이라 강을 건널 때에 물이 너를 침몰시키지 못할 것이요 네가 불 가운데로 지날 때에 타지도 아니할 것이요 불꽃이 너를 사르지도 못하리라",
+        reference: "이사야 43:2",
+      },
+      {
+        text: "나 여호와 네 하나님이 네 오른손을 잡고 말하기를 두려워하지 말라 내가 너를 도와주리라 할 때에",
+        reference: "이사야 41:13",
+      },
+      // 시편
+      {
+        text: "여호와는 나의 목자시니 내게 부족함이 없으리로다 그가 나를 푸른 풀밭에 누이시며 쉴 만한 물 가로 인도하시는도다",
+        reference: "시편 23:1-2",
+      },
+      {
+        text: "여호와는 나의 빛이요 나의 구원이시니 내가 누구를 두려워하리요 여호와는 내 생명의 능력이시니 내가 누구를 무서워하리요",
+        reference: "시편 27:1",
+      },
+      {
+        text: "가만히 하고 내가 하나님 됨을 알지어다 나는 만국에서 높임을 받을 것이요 땅에서 높임을 받으리라",
+        reference: "시편 46:10",
+      },
+      {
+        text: "하나님이여 내 속에 정한 마음을 창조하시고 내 안에 정직한 영을 새롭게 하소서",
+        reference: "시편 51:10",
+      },
+      {
+        text: "내가 산을 향하여 눈을 들리라 나의 도움이 어디서 올까 나의 도움은 천지를 지으신 여호와에게서로다",
+        reference: "시편 121:1-2",
+      },
+      {
+        text: "내가 주께 감사하옴은 나를 놀랍고 지으심이니 주의 행사가 기이함을 내 영혼이 잘 아나이다",
+        reference: "시편 139:14",
+      },
+      // 잠언
+      {
+        text: "너는 마음을 다하여 여호와를 신뢰하고 네 명철을 의지하지 말라 너는 범사에 그를 인정하라 그리하면 네 길을 지도하시리라",
+        reference: "잠언 3:5-6",
+      },
+      {
+        text: "여호와를 경외하는 것이 지식의 시작이거늘 미련한 자는 지혜와 훈계를 멸시하느니라",
+        reference: "잠언 1:7",
+      },
+      {
+        text: "너의 일을 여호와께 맡기라 그리하면 너의 경영하는 것이 이루어지리라",
+        reference: "잠언 16:3",
+      },
+      {
+        text: "유순한 대답은 분노를 쉬게 하여도 과격한 말은 노를 격동하느니라",
+        reference: "잠언 15:1",
+      },
+      {
+        text: "사람이 마음으로 자기의 길을 계획할지라도 그 걸음을 인도하는 자는 여호와시니라",
+        reference: "잠언 16:9",
+      },
+      // 전도서
+      {
+        text: "천하 만사가 기한이 있고 모든 목적이 이룰 때가 있나니",
+        reference: "전도서 3:1",
+      },
+      {
+        text: "전도자가 이르되 헛되고 헛되며 헛되고 헛되니 모든 것이 헛되도다",
+        reference: "전도서 1:2",
+      },
+      {
+        text: "너는 청년의 때에 너의 창조주를 기억하라 곧 곤고한 날이 이르기 전에, 나는 아무 낙이 없다고 할 해들이 가깝기 전에",
+        reference: "전도서 12:1",
+      },
+      // 욥기
+      {
+        text: "이르되 내가 모태에서 벌거벗고 나왔사온즉 또한 벌거벗고 그리로 돌아가올지라 주신 자도 여호와시요 취하신 자도 여호와시오니 여호와의 이름이 찬송을 받으실지니이다",
+        reference: "욥기 1:21",
+      },
+      {
+        text: "내가 알기에는 나의 구속자가 살아 계시니 마지막에 그가 땅 위에 서실 것이라",
+        reference: "욥기 19:25",
+      },
+      {
+        text: "욥이 친구들을 위하여 기도하매 여호와께서 욥의 사로잡힘을 돌이키시고 여호와께서 욥에게 이전의 두 배나 주시니라",
+        reference: "욥기 42:10",
+      },
+      // 아가서
+      {
+        text: "나는 내 사랑하는 자의 것이요 내 사랑하는 자는 나의 것이라 그는 백합화 가운데서 양떼를 먹이는 자로다",
+        reference: "아가 6:3",
+      },
+      {
+        text: "나를 인치듯이 네 마음에 인치고 네 팔에 인치라 사랑은 죽음 같이 강하고 질투는 음부 같이 잔인하며 불꽃같이 일어나니 곧 여호와의 불꽃이니라",
+        reference: "아가 8:6",
+      },
     ],
     RNKSV: [
       {
@@ -245,6 +818,149 @@ const bibleVersions: BibleVersions = {
       {
         text: "하나님께서 우리에게 주신 것은 두려워하는 영이 아니라, 능력과 사랑과 절제의 영입니다.",
         reference: "디모데후서 1:7",
+      },
+      // 신약
+      {
+        text: "하나님께서 세상을 이처럼 사랑하셔서 외아들을 주셨으니, 이는 그를 믿는 사람마다 멸망하지 않고 영생을 얻게 하려는 것이다.",
+        reference: "요한복음 3:16",
+      },
+      {
+        text: "예수께서 이르시되 내가 곧 길이요 진리요 생명이니 나로 말미암지 않고는 아버지께로 올 자가 없느니라",
+        reference: "요한복음 14:6",
+      },
+      {
+        text: "예수께서 이르시되 네 마음을 다하고 목숨을 다하고 뜻을 다하여 주 너의 하나님을 사랑하라 하셨으니",
+        reference: "마태복음 22:37",
+      },
+      {
+        text: "너희는 먼저 그의 나라와 그의 의를 구하라 그리하면 이 모든 것을 너희에게 더하시리라",
+        reference: "마태복음 6:33",
+      },
+      {
+        text: "두 세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라",
+        reference: "마태복음 18:20",
+      },
+      {
+        text: "우리가 알거니와 하나님을 사랑하는 자 곧 그의 뜻대로 부르심을 입은 자들에게는 모든 것이 합력하여 선을 이루느니라",
+        reference: "로마서 8:28",
+      },
+      {
+        text: "내가 확신하노니 사망이나 생명이나 천사들이나 권세자들이나 현재 일이나 장래 일이나 능력이나 높음이나 깊음이나 다른 어떤 피조물이라도 우리를 우리 주 그리스도 예수 안에 있는 하나님의 사랑에서 끊을 수 없으리라",
+        reference: "로마서 8:38-39",
+      },
+      {
+        text: "너희는 은혜에 의하여 믿음으로 말미암아 구원을 받았으니 이것은 너희에게서 난 것이 아니요 하나님의 선물이라",
+        reference: "에베소서 2:8",
+      },
+      {
+        text: "나에게 이르시기를 내 은혜가 네게 족하도다 이는 내 능력이 약한 데서 온전하여짐이라 하신지라",
+        reference: "고린도후서 12:9",
+      },
+      {
+        text: "그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라 이전 것은 지나갔으니 보라 새 것이 되었도다",
+        reference: "고린도후서 5:17",
+      },
+      // 이사야
+      {
+        text: "오직 여호와를 앙망하는 자는 새 힘을 얻으리니 독수리가 날개치며 올라감 같을 것이요",
+        reference: "이사야 40:31",
+      },
+      {
+        text: "이는 한 아기가 우리에게 났고 한 아들을 우리에게 주신 바 되었는데 그 어깨에는 정사를 메었고 그 이름은 기묘자라, 모사라, 전능하신 하나님이라, 영존하시는 아버지라, 평강의 왕이라 할 것임이라",
+        reference: "이사야 9:6",
+      },
+      {
+        text: "두려워하지 말라 내가 너와 함께 함이라 놀라지 말라 나는 네 하나님이 됨이라 내가 너를 굳세게 하리라 참으로 너를 도와주리라 참으로 나의 의로운 오른손으로 너를 붙들리라",
+        reference: "이사야 41:10",
+      },
+      {
+        text: "네가 물 가운데로 지날 때에 내가 함께 할 것이라 강을 건널 때에 물이 너를 침몰시키지 못할 것이요 네가 불 가운데로 지날 때에 타지도 아니할 것이요 불꽃이 너를 사르지도 못하리라",
+        reference: "이사야 43:2",
+      },
+      {
+        text: "나 여호와 네 하나님이 네 오른손을 잡고 말하기를 두려워하지 말라 내가 너를 도와주리라 할 때에",
+        reference: "이사야 41:13",
+      },
+      // 시편
+      {
+        text: "여호와는 나의 목자시니 내게 부족함이 없으리로다 그가 나를 푸른 풀밭에 누이시며 쉴 만한 물 가로 인도하시는도다",
+        reference: "시편 23:1-2",
+      },
+      {
+        text: "여호와는 나의 빛이요 나의 구원이시니 내가 누구를 두려워하리요 여호와는 내 생명의 능력이시니 내가 누구를 무서워하리요",
+        reference: "시편 27:1",
+      },
+      {
+        text: "가만히 하고 내가 하나님 됨을 알지어다 나는 만국에서 높임을 받을 것이요 땅에서 높임을 받으리라",
+        reference: "시편 46:10",
+      },
+      {
+        text: "하나님이여 내 속에 정한 마음을 창조하시고 내 안에 정직한 영을 새롭게 하소서",
+        reference: "시편 51:10",
+      },
+      {
+        text: "내가 산을 향하여 눈을 들리라 나의 도움이 어디서 올까 나의 도움은 천지를 지으신 여호와에게서로다",
+        reference: "시편 121:1-2",
+      },
+      {
+        text: "내가 주께 감사하옴은 나를 놀랍고 지으심이니 주의 행사가 기이함을 내 영혼이 잘 아나이다",
+        reference: "시편 139:14",
+      },
+      // 잠언
+      {
+        text: "너는 마음을 다하여 여호와를 신뢰하고 네 명철을 의지하지 말라 너는 범사에 그를 인정하라 그리하면 네 길을 지도하시리라",
+        reference: "잠언 3:5-6",
+      },
+      {
+        text: "여호와를 경외하는 것이 지식의 시작이거늘 미련한 자는 지혜와 훈계를 멸시하느니라",
+        reference: "잠언 1:7",
+      },
+      {
+        text: "너의 일을 여호와께 맡기라 그리하면 너의 경영하는 것이 이루어지리라",
+        reference: "잠언 16:3",
+      },
+      {
+        text: "유순한 대답은 분노를 쉬게 하여도 과격한 말은 노를 격동하느니라",
+        reference: "잠언 15:1",
+      },
+      {
+        text: "사람이 마음으로 자기의 길을 계획할지라도 그 걸음을 인도하는 자는 여호와시니라",
+        reference: "잠언 16:9",
+      },
+      // 전도서
+      {
+        text: "천하 만사가 기한이 있고 모든 목적이 이룰 때가 있나니",
+        reference: "전도서 3:1",
+      },
+      {
+        text: "전도자가 이르되 헛되고 헛되며 헛되고 헛되니 모든 것이 헛되도다",
+        reference: "전도서 1:2",
+      },
+      {
+        text: "너는 청년의 때에 너의 창조주를 기억하라 곧 곤고한 날이 이르기 전에, 나는 아무 낙이 없다고 할 해들이 가깝기 전에",
+        reference: "전도서 12:1",
+      },
+      // 욥기
+      {
+        text: "이르되 내가 모태에서 벌거벗고 나왔사온즉 또한 벌거벗고 그리로 돌아가올지라 주신 자도 여호와시요 취하신 자도 여호와시오니 여호와의 이름이 찬송을 받으실지니이다",
+        reference: "욥기 1:21",
+      },
+      {
+        text: "내가 알기에는 나의 구속자가 살아 계시니 마지막에 그가 땅 위에 서실 것이라",
+        reference: "욥기 19:25",
+      },
+      {
+        text: "욥이 친구들을 위하여 기도하매 여호와께서 욥의 사로잡힘을 돌이키시고 여호와께서 욥에게 이전의 두 배나 주시니라",
+        reference: "욥기 42:10",
+      },
+      // 아가서
+      {
+        text: "나는 내 사랑하는 자의 것이요 내 사랑하는 자는 나의 것이라 그는 백합화 가운데서 양떼를 먹이는 자로다",
+        reference: "아가 6:3",
+      },
+      {
+        text: "나를 인치듯이 네 마음에 인치고 네 팔에 인치라 사랑은 죽음 같이 강하고 질투는 음부 같이 잔인하며 불꽃같이 일어나니 곧 여호와의 불꽃이니라",
+        reference: "아가 8:6",
       },
     ],
   },
@@ -293,7 +1009,9 @@ export function BibleVerse() {
     if (currentVerse) {
       const verseText = currentVerse.text;
       const verseReference = currentVerse.reference;
-      const shareText = `Verse of the Day: "${verseText}" - ${verseReference}`;
+      const shareText = language === "en" 
+        ? `"${verseText}" (${version}) ${verseReference}`
+        : `"${verseText}" (${version}) ${verseReference}`;
 
       try {
         // Try modern clipboard API first
@@ -413,7 +1131,7 @@ export function BibleVerse() {
                           개역한글 (KRV)
                         </SelectItem>
                         <SelectItem value="RNKSV">
-                          개역개정 (RNKSV)
+                          새번역 (RNKSV)
                         </SelectItem>
                       </>
                     )}
@@ -573,7 +1291,7 @@ export function BibleVerse() {
                     ease: "easeInOut",
                   }}
                 >
-                  {language === "en" ? "Holy Bible" : "성경"}
+{language === "en" ? "Just open it!" : "Just open it!"}
                 </motion.span>
               </motion.h1>
 
@@ -589,8 +1307,8 @@ export function BibleVerse() {
               >
                 <motion.span className="bg-clip-text">
                   {language === "en"
-                    ? "Tap the Bible to open it!"
-                    : "성경을 터치하여 열어보세요!"}
+                    ? "Touch the Bible or the button below!"
+                    : "성경이나 아래 버튼을 터치해보세요!"}
                 </motion.span>
               </motion.p>
 
@@ -615,7 +1333,8 @@ export function BibleVerse() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-50/80 to-orange-50/80 backdrop-blur-sm border border-amber-300/50"
+                  onClick={openBible}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-50/80 to-orange-50/80 backdrop-blur-sm border border-amber-300/50 cursor-pointer hover:from-amber-100/80 hover:to-orange-100/80 transition-all duration-200"
                 >
                   <motion.div
                     animate={{
@@ -639,8 +1358,8 @@ export function BibleVerse() {
                   </motion.div>
                   <span className="text-sm text-amber-800 font-medium">
                     {language === "en"
-                      ? "Divine wisdom awaits"
-                      : "하나님의 지혜가 기다립니다"}
+                      ? "What word awaits today?"
+                      : "오늘은 어떤 말씀이 기다리고 있을까?"}
                   </span>
                   <motion.div
                     animate={{
@@ -936,7 +1655,7 @@ export function BibleVerse() {
                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
                   <Button
                     onClick={getNewVerse}
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-amber-900 px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
                   >
                     <RefreshCw className="w-4 h-4 mr-2" />
                     {language === "en"
@@ -945,7 +1664,7 @@ export function BibleVerse() {
                   </Button>
                   <Button
                     onClick={shareVerse}
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-amber-900 px-6 py-2 rounded-full shadow-lg transform transition-all duration-200 hover:scale-105"
                   >
                     <Share2 className="w-4 h-4 mr-2" />
                     {language === "en" ? "Share" : "공유"}
@@ -974,7 +1693,7 @@ export function BibleVerse() {
                     <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <a
-                    href="https://9pt.ai.kr/chat/bible"
+                    href="https://moimai.org/chat/bible"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 text-amber-800 rounded-lg transition-all duration-200 hover:shadow-md group"
